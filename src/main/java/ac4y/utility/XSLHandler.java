@@ -12,8 +12,6 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import ac4y.base.ErrorHandler;
-
 public class XSLHandler {
 
     public static String getResult(String aXml, String aXsl) throws TransformerException{

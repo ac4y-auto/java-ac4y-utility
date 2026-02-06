@@ -1,14 +1,7 @@
 package ac4y.utility;
 
 import	java.net.*;
-import java.sql.SQLException;
-import java.text.ParseException;
 import	java.util.*;
-
-import ac4y.base.Ac4yException;
-import ac4y.base.Ac4yProcess;
-import ac4y.base.Ac4yProcessContext;
-import ac4y.base.ErrorHandler;
 
 import	java.io.*;
 
@@ -138,33 +131,4 @@ public class SEQFileHandler {
    	   	
    	} // isExists
 
-	public Object processOnFolder(String aPath, Ac4yProcess aAc4yProcess, Object aProcessArgument) throws Ac4yException, ClassNotFoundException, SQLException, IOException, ParseException {
-
-		if (aAc4yProcess == null)
-			throw new Ac4yException("process is empty!");
-		
-		Object result = null;
-
-		File folder = new File(aPath);
-		File[] listOfFiles = folder.listFiles(); 
-		 
-		for (int i = 0; i < listOfFiles.length; i++) {
-		 
-			if (listOfFiles[i].isFile()) {
-				
-				result = 
-					aAc4yProcess.process(
-						new Ac4yProcessContext(
-							aProcessArgument,
-							listOfFiles[i].getAbsolutePath()
-						)
-					);
-				
-		      }
-		  }
-		
-		return result;
-		
-	} // processOnFolder
-   	
 } // SEQFileHandler
